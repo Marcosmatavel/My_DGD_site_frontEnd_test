@@ -153,6 +153,35 @@ select {
     margin-top: 5px;
 }
 
+#cell_num_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    gap: 5px;
+}
+
+#country_code{
+    width: 27%;
+}
+
+#gender{
+    margin-top: 25px;
+}
+
+#selections{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#selections > label{
+    color: green;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
 /* Buttons */
 button[type="submit"] {
     margin-top: 10px;
