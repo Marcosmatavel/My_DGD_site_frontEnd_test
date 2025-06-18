@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Materia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/materia_styles.css" />
+</head>
+<body>
+    <!-- Top Navigation -->
+    <header>
+        <nav id="nav-bar">
+            <div id="logo">
+                <a href="../index.html"><img src="#" alt="logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="materia.html" class="active">Materia</a></li>
+                <li><a href="exercises_ai.html">Exercise AI</a></li>
+                <li><a href="about_us.html">About us</a></li>
+                <li><a href="sign.html" id="sign">Sign up</a></li>
+            </ul>
+            <div id="hamburger_menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Content Wrapper -->
+        <div class="page-wrapper">
+            <!-- Left Sidebar -->
+            <div id="leftSide">
+                <div id="aiToggle">
+                    <img title="AI Section" src="../images/ai_img.png" alt="AI Toggle" /><strong> - AI Section</strong>
+                </div>
+                <div id="sideBar_section">
+                    <div id="search_box">
+                        <input type="text" placeholder="Search topics..." />
+                    </div>
+                    <ul>
+                        <li>Counting</li>
+                        <li>Addition</li>
+                        <li>Subtraction</li>
+                        <li>Multiplication</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main id="main">
+                <div id="content_container">
+                    <h2>Welcome to Materia</h2>
+                    <p>
+                        Explore various topics in descriptive geometry and design. Use the left sidebar to browse subjects and interact with our AI assistant for detailed help.
+                    </p>
+                </div>
+            </main>
+
+            <!-- AI Section -->
+            <section id="aiSection">
+                <button class="close-btn" onclick="document.getElementById('aiSection').classList.remove('active')" style="color:red">&times;</button>
+                <div id="answerSection">
+                    <p><em>AI will respond here...</em></p>
+                </div>
+                <form id="ai-form" method="post" action="{% url 'ai:ask' %}">
+                    {% csrf_token %}
+                    <div class="ai-panel">
+                        <textarea id="ai-input" placeholder="Ask me something..."></textarea>
+                        <button id="ai-send-btn">Send</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <!-- Scripts -->
+        <script src="../js/hamburger_menu.js"></script>
+        <script src="../js/smart_search.js"></script>
+        <script src="../js/submit_content.js"></script>
+        <script src="../js/sideBar.js"></script>
+        <script src="../js/askReader.js"></script>
+        <script src="static/js/ai.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            const input = document.getElementById("ai-input");
+            const form = document.getElementById("ai-form");
+
+            input.addEventListener("keydown", function(event) {
+                // Pressing Enter (without Shift) submits the form
+                if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault(); // Prevent new line
+                form.submit(); // Submit the form
+                }
+            });
+
+            const sendButton = document.getElementById("send-button");
+            sendButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Optional, ensures custom logic works
+                form.submit(); // Submit the form
+            });
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,275 @@
+/* === Base Reset === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --footer-bg-color: #000;
+    --main-color: #ff0000;
+    --secondary-color: #000;
+    --test-color: #ff0000;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+/* === Navigation Bar === */
+#nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--footer-bg-color);
+    color: white;
+    position: relative;
+    z-index: 1001;
+}
+
+#nav-bar #logo img {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: white;
+    color: black;
+    text-shadow: 1px 1px 2px #cecece;
+}
+
+.nav-links li a.active{
+    background-color: #fff;
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    width: 0;
+}
+
+/* === Hamburger Menu === */
+#hamburger_menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#hamburger_menu .line {
+    background-color: white;
+    width: 35px;
+    height: 4px;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+#hamburger_menu.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: var(--main-color);
+}
+
+#hamburger_menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger_menu.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background-color: var(--main-color);
+}
+.page-wrapper {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+/* Sidebar */
+#leftSide {
+    width: 250px;
+    background: #282626;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #fff;
+}
+
+#aiToggle{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: red;
+}
+
+#aiToggle > img{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+#search_box input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#sideBar_section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#sideBar_section li {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+#sideBar_section li:hover{
+    color: red;
+    border-radius: 5px;
+    background-color: #dad6d6;
+    margin-left: 2px;
+    scale: 1.1;
+}
+
+#main {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* AI Section */
+#aiSection {
+    width: 400px;
+    background: #fff;
+    border-left: 1px solid #ccc;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    position: relative;
+}
+
+#aiSection.active {
+    display: flex;
+}
+
+#aiSection .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#answerSection {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.ai-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#ai-input {
+    height: 60px;
+    padding: 0.5rem;
+    resize: none;
+}
+
+#ai-send-btn {
+    padding: 0.5rem;
+    background-color: #222;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#ai-send-btn:hover{
+    border-radius: 50px;
+    box-shadow: 2px 2px 5px red, -2px -2px 5px red;
+    border: 1px solid #fff;
+    scale: 0.9;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .page-wrapper {
+        flex-direction: column;
+    }
+
+    #leftSide {
+        width: 100%;
+        order: 1;
+    }
+
+    #main {
+        order: 2;
+    }
+
+    .nav-links li a.active{
+        background-color: #fff;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #aiSection {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        z-index: 1000;
+    }
+
+    #hamburger_menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    #aiToggle{
+        display: none;
+    }
+}

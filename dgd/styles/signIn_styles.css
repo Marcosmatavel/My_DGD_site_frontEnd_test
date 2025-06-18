@@ -1,0 +1,220 @@
+/* === Base Reset === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --footer-bg-color: #000;
+    --main-color: #ff0000;
+    --secondary-color: #000;
+    --test-color: #ff0000;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+  /* === Navigation Bar === */
+#nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--footer-bg-color);
+    color: white;
+    position: relative;
+    z-index: 1001;
+}
+
+#nav-bar #logo img {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: white;
+    color: black;
+    text-shadow: 1px 1px 2px #cecece;
+}
+
+.nav-links li a.active{
+    background-color: #fff;
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    width: 0;
+}
+
+#hamburger_menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#hamburger_menu .line {
+    background-color: white;
+    width: 35px;
+    height: 4px;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+#hamburger_menu.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: var(--main-color);
+}
+
+#hamburger_menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger_menu.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background-color: var(--main-color);
+}
+
+#page_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #fdfbfb, #ebedee); /* soft background */
+}
+
+#big_container {
+    display: flex;
+    flex-direction: row; /* forms side by side */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Login and Sign Up Panels */
+#log, #sign {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: none; /* remove red borders */
+}
+
+/* Headings */
+#log h1, #sign h1 {
+    font-size: 28px;
+    color: var(--main-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Form fields */
+form label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline-color: var(--main-color);
+    margin-top: 5px;
+}
+
+/* Buttons */
+button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: darkred;
+}
+
+/* Responsive layout: stack login and sign-up vertically on small screens */
+
+@media screen and (max-width: 768px) {
+    #hamburger_menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    #big_container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links li a.active{
+        background-color: #fff;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s;
+}

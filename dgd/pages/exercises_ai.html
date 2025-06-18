@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../styles/exercises_styles.css"/>
+    <title>Exercise AI</title>
+</head>
+<body>
+    <div id="blur-bg"></div>
+    <!-- Top Navigation -->
+    <header>
+        <nav id="nav-bar">
+            <div id="logo">
+                <a href="../index.html"><img src="#" alt="logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="materia.html">Materia</a></li>
+                <li><a href="exercises_ai.html" class="active">Exercise AI</a></li>
+                <li><a href="about_us.html">About us</a></li>
+                <li><a href="sign.html" id="sign">Sign up</a></li>
+            </ul>
+            <div id="hamburger_menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </nav>
+
+        <div id="site_title" style="width: 100%;">
+            <span id="secondary"><span id="principle">DGD AI </span> Exercises Solver</span>   
+            <button id="toggler" aria-label="Toggle management panel">
+                <img src="../images/forward_toggle.png" alt="Forward" id="first_toggler">
+                <img src="../images/backward_toggle.png" alt="Backward" id="second_toggler">
+            </button>
+        </div>
+    </header>
+
+    <div id="page_wrapper">
+        <div id="interation_side">
+            <div id="search_bar">
+                <!-- Upload button -->
+                <img src="../images/file_upload_icon.png" alt="File upload icon" id="upload_image_or_documents_btn" title="Upload files">
+
+                <img src="../images/camera.png" title="Take a picture" alt="File upload icon" id="upload_image_or_documents_btn" title="Upload files">
+
+                <!-- Hidden file input -->
+                <input type="file" id="file_input" multiple style="display:none;" accept="image/*,application/pdf"/>
+
+                <!-- Text input -->
+                <textarea id="prompt_text_box" placeholder="What to solve??" rows="3" style="resize:none;"></textarea>
+                <!-- <div id="file_preview_container"></div> -->
+                <button id="send_btn" title="send">&uparrow;</button>
+
+
+
+                <!-- Audio recording button with wave container -->
+                <div id="audio_container">
+                    <button id="audio_record" title="Start/Stop recording" aria-pressed="false" aria-label="Record audio"><img src="../images/audio_rec_icon.png" style="scale:0.5"/></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="management_side">
+            <div id="top_controls">
+                <button id="new_prompt">+ New Prompt</button>
+            </div>
+
+            <div id="instructions">
+                <p>Click a prompt below to continue or start a new one above.</p>
+            </div>
+
+            <div id="prompts_history">
+                <ul id="prompts">
+                    <li>What are points</li>
+                    <li>Planes Intersection explained</li>
+                    <li>Difference between HPP and VPP</li>
+                    <li>What is a Quadrant</li>
+                    <li>Getting a quadrant point</li>
+                    <li>What are points</li>
+                    <li>Planes Intersection explained</li>
+                    <li>Difference between HPP and VPP</li>
+                    <li>What is a Quadrant</li>
+                    <li>Getting a quadrant point</li>
+                    <li>What are points</li>
+                    <li>Planes Intersection explained</li>
+                    <li>Difference between HPP and VPP</li>
+                    <li>What is a Quadrant</li>
+                    <li>Getting a quadrant point</li>
+                    <li>What are points</li>
+                    <li>Planes Intersection explained</li>
+                    <li>Difference between HPP and VPP</li>
+                    <li>What is a Quadrant</li>
+                    <li>Getting a quadrant point</li>
+                    <li>What are points</li>
+                    <li>Planes Intersection explained</li>
+                    <li>Difference between HPP and VPP</li>
+                    <li>What is a Quadrant</li>
+                    <li>Getting a quadrant point</li>
+
+                </ul>
+            </div>
+
+            <div id="bottom_controls" title="Manage Settings">
+                <img src="../images/gear_icon.png" alt="Settings" />
+                <span>Settings</span>
+            </div>
+        </div>
+    </div>
+
+    <!--===============Scripts=========-->
+    <script src="../js/hamburger_menu.js"></script>
+    <script src="../js/record.js"></script>
+    <script src="../js/uploads.js"></script>
+    <script src="../js/right_side.js"></script>
+</body>
+</html>
